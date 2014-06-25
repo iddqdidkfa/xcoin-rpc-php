@@ -1,4 +1,4 @@
 xcoin-rpc-php
 =============
 
-PHP JSON RPC wrapper for different crypto-currency daemons
+PHP cURL JSON RPC wrapper for different crypt-currency daemons

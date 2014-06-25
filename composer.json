@@ -1,0 +1,22 @@
+{
+    "name": "softcommerce/xcoin-rpc-php",
+    "description": "PHP cURL JSON RPC wrapper for different crypt-currency daemons",
+    "keywords": ["php", "bitcoin", "rpc", "json", "curl"],
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Oleg Ilyushyn",
+            "email": "oleg@softcommerce.com.ua",
+            "homepage": "http://softcommerce.com.ua"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "softcommerce\\xcoin\\": ""
+        }
+    }
+}

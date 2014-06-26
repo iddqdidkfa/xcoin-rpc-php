@@ -1046,4 +1046,28 @@ class BitcoinRpc
     {
         return $this->makeRpcCall('walletPassPhraseChange', [$oldPassPhrase, $newPassPhrase]);
     }
+
+    /**
+     * Returns the estimated network hashes per second based on the last 120 blocks.
+     * Pass in [blocks] to override # of blocks, -1 specifies since last difficulty change.
+     * Pass in [height] to estimate the network speed at the time when a certain block was found.
+     *
+     * @version 0.9
+     *
+     * @param int|null  $blocks
+     * @param int|null  $height
+     *
+     * @return int|null
+     */
+    public function getNetworkHashPerSecond($blocks = null, $height = null)
+    {
+        $params = [];
+        if (!is_null($blocks)) {
+            $params[] = $blocks;
+        }
+        if (!is_null($height)) {
+            $params[] = $height;
+        }
+        return $this->makeRpcCall('getNetworkHashPs', $params);
+    }
 }

@@ -255,18 +255,21 @@ class BitcoinRpc
      * If [account] is not specified, returns the server's total available balance.
      * If [account] is specified, returns the balance in the account.
      *
-     * @param string $account
-     * @param int $minConf
+     * @param null|string $account
+     * @param null|int $minConf
      *
      * @return \stdClass|null
      */
-    public function getBalance($account = null, $minConf = 1)
+    public function getBalance($account = null, $minConf = null)
     {
         $params = [];
         if (!is_null($account)) {
             $params[] = $account;
         }
         if (!is_null($minConf)) {
+            if (empty($params)) {
+                $params[] = "";
+            }
             $params[] = $minConf;
         }
         return $this->makeRpcCall('getBalance', $params);
